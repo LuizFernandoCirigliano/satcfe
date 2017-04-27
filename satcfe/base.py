@@ -86,6 +86,9 @@ class BibliotecaSAT(object):
         :raises ValueError: Se a convenção de chamada não puder ser determinada
             ou se não for um valor válido.
         """
+        lib_dir = os.path.dirname(self._caminho)
+        if lib_dir not in os.environ['PATH']:
+            os.environ['PATH'] = lib_dir + ';' + os.environ['PATH']
         if self._convencao is None:
             if self._caminho.endswith(('.DLL', '.dll')):
                 self._convencao = constantes.WINDOWS_STDCALL
