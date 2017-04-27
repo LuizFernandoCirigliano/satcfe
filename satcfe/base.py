@@ -105,7 +105,7 @@ class BibliotecaSAT(object):
             raise ValueError('Convencao de chamada desconhecida: {!r}'.format(
                     self._convencao))
 
-        self._libsat = loader(self._caminho)
+        self._libsat = loader(str(self._caminho))
 
 
     @property
